@@ -5,6 +5,7 @@ import axios from "axios";
 // generamos una instancia
 const productsSlice = createSlice({
     name: 'products',
+    //nunca inicializar el estado en undefined porque va a causar error 
     initialState: null,
     //los reducers son los actions
 

@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { Route, Routes } from 'react-router-dom'
 import './App.css'
 import Home from './pages/Home'
@@ -17,9 +17,8 @@ function App() {
 
 
  //el useSelector es una funcion que recibe un callback  para traer informacion de la store
-  const products = useSelector(state => state.products )
-
-  console.log(products)
+  // const products = useSelector(state => state.products )
+ // console.log(products)
 
   return (
     <div className="App">
