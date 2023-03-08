@@ -9,7 +9,7 @@ const ProductDescription = ({product}) => {
  }
 
  const handleMinus = () => {
-    if(counter - 1 > 0){
+    if(counter - 1 > 0){ 
         setCounter(counter - 1)
     }
  }
