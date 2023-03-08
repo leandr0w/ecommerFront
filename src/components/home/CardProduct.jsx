@@ -1,13 +1,38 @@
+import axios from 'axios'
 import React from 'react'
+import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
+import { getUserCart } from '../../store/slices/cart.slice'
+import getConfig from '../../utils/getConfig'
 import '../home/styles/cardProduct.css'
 
 const CardProduct = ({product}) => {
     //para poder navegar hacia los datos del producto hay que utilizar la funcion useNavigate, esta misma hay que instanciarla 
     const navigate =  useNavigate()
+    
+    const dispatch = useDispatch()
+
     //la funcion me va a llevar al producto indicado
     const handleClick = () => {
         navigate(`/product/${product.id}`)
+    }
+
+    const handleBtnClick = e => {
+
+        e.stopPropagation()
+        const URL = 'https://e-commerce-api.academlo.tech/api/v1/cart'
+
+        const data = {
+            id: product.id,
+            quantity: 1
+        }
+
+        axios.post(URL, data, getConfig())
+        .then(res => {
+            console.log(res.data)
+            dispatch(getUserCart())
+        })
+        .catch(err => console.log(err))
     }
 
   return (
@@ -22,7 +47,7 @@ const CardProduct = ({product}) => {
                 <span className='product__price-label'>Price</span>
                 <h4 className='product__price-number'>{product.price}</h4>
             </article>
-            <button className='product__btn'><i className="fa-solid fa-cart-plus"></i></button>
+            <button onClick={handleBtnClick} className='product__btn'><i className="fa-solid fa-cart-plus"></i></button>
         </section>
     </article>
   )
