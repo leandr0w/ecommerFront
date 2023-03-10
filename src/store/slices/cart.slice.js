@@ -13,7 +13,7 @@ const cartSlice = createSlice({
 export const { setCartGlobal } = cartSlice.actions
 
 export default cartSlice.reducer
-
+//esto es un thunk
 export const getUserCart = () => (dispatch) => {
     const URL = 'https://e-commerce-api.academlo.tech/api/v1/cart'
     axios.get(URL, getConfig())

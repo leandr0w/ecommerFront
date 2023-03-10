@@ -1,0 +1,1 @@
+si quiero hacer una peticion asyn y guardar la respuesta async lo quiero guardar en la variable global lo hago mediante reduxthunk y lo espacho con un dispatch

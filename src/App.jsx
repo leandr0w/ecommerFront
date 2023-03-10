@@ -3,6 +3,8 @@ import { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { Route, Routes } from 'react-router-dom'
 import './App.css'
+import Header from './components/shared/Header'
+import Cart from './pages/Cart'
 import Home from './pages/Home'
 import Login from './pages/Login'
 import ProductInfo from './pages/ProductInfo'
@@ -26,7 +28,7 @@ function App() {
  // console.log(products)
 
  //crear un nuevo usuario
-  useEffect(() => {
+ /* useEffect(() => {
     const URL = 'https://e-commerce-api.academlo.tech/api/v1/users'
 
     const data = {
@@ -42,13 +44,16 @@ function App() {
     axios.post(URL, data)
     .then(res => console.log(res))
     .catch(err => console.log(err))
-  }, [])
+  }, [])  */
  //fin del usuario
   return (
     <div className="App">
+      <Header />
      <Routes>
+   {  /*la route es la ruta en particular, el path es lo que va aasdf decir el url */}
       <Route path='/' element={<Home />}/>
       <Route path='/login' element={<Login />}/>
+      <Route path='/cart' element={<Cart />}/>
       <Route path='/product/:id' element={<ProductInfo />}/>
      </Routes>
     </div>

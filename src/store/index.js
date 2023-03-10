@@ -5,6 +5,7 @@ import products from './slices/products.slice'
 import cart from './slices/cart.slice'
 
 export default configureStore({
+    //el reducer es el lugar donde se guardan todas las variables globales
     reducer: {
         products,
         cart
